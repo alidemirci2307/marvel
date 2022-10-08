@@ -33,7 +33,7 @@ class CharacterListAdapter(private val context : Context, var itemList : ArrayLi
         val imageUrl = "${list.thumbnail?.replace("http", "https")}/portrait_xlarge.${list.thumbnailExtension}"
         Glide.with(context).load(imageUrl).into(holder.thumbnail)
         holder.card.setOnClickListener {
-            Toast.makeText(context, "Clicked character "+ "${list.thumbnail?.replace("http", "https")}/portrait_xlarge.${list.thumbnailExtension}", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Clicked character : "+ "${list.thumbnail?.replace("http", "https")}/portrait_xlarge.${list.thumbnailExtension}", Toast.LENGTH_LONG).show()
         }
     }
 
