@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharactersViewModel @Inject constructor(
-    private val marvelRepository: MarvelRepository
+    marvelRepository: MarvelRepository
 ) : ViewModel() {
 
     val characterItemsUiStates = marvelRepository.getAllCharactersWithPaging().map { pagingData ->

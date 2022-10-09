@@ -3,6 +3,7 @@ package com.demirci.marvel.domain.model
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.demirci.marvel.data.source.MarvelService
+import com.demirci.marvel.util.Constants
 
 
 class CharacterPagingDataSource(private val marvelService: MarvelService) :
@@ -11,7 +12,7 @@ class CharacterPagingDataSource(private val marvelService: MarvelService) :
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CharacterModel> {
         val page = params.key ?: STARTING_PAGE_INDEX
         return try {
-            val response = marvelService.getAllCharacters(offset = (page*params.loadSize).toString())
+            val response = marvelService.getAllCharacters(limit = Constants.CHARACTER_LIMIT, offset = ((page-1)*params.loadSize).toString())
             LoadResult.Page(
                 data = response.data!!.results.map {
                     it.toCharacter()

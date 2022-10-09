@@ -4,6 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.demirci.marvel.data.source.MarvelService
+import com.demirci.marvel.data.source.model.character_details.CharacterDetailsResponse
 import com.demirci.marvel.domain.model.CharacterModel
 import com.demirci.marvel.domain.model.CharacterPagingDataSource
 import com.demirci.marvel.domain.repository.MarvelRepository
@@ -18,13 +19,13 @@ class MarvelRepositoryImpl @Inject constructor(
     override fun getAllCharactersWithPaging(): Flow<PagingData<CharacterModel>> {
         return Pager(
             config = PagingConfig(
-                pageSize = Constants.limit.toInt()
+                pageSize = Constants.CHARACTER_LIMIT.toInt()
             ),
             pagingSourceFactory = { CharacterPagingDataSource(marvelService) }
         ).flow
     }
 
-
+    override suspend fun getCharacterDetails(id : String ): CharacterDetailsResponse = marvelService.getCharacterDetails(id = id)
 
 
 }

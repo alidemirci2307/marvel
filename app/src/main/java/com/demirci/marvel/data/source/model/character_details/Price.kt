@@ -7,7 +7,7 @@ import com.google.gson.annotations.Expose
 data class Price(
     @SerializedName("price")
     @Expose
-    val price: Int?,
+    val price: Double?,
     @SerializedName("type")
     @Expose
     val type: String?

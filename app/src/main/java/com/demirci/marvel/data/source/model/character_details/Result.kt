@@ -1,8 +1,9 @@
 package com.demirci.marvel.data.source.model.character_details
 
 
-import com.google.gson.annotations.SerializedName
+import com.demirci.marvel.domain.model.CharacterDetailsModel
 import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
 data class Result(
     @SerializedName("characters")
@@ -92,4 +93,10 @@ data class Result(
     @SerializedName("variants")
     @Expose
     val variants: List<Any>?
-)
+) {
+    fun toDomain(): CharacterDetailsModel {
+        return CharacterDetailsModel(
+            title = this.title
+        )
+    }
+}

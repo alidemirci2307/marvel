@@ -13,7 +13,7 @@ data class Series(
     val collectionURI: String?,
     @SerializedName("items")
     @Expose
-    val items: List<İtem>?,
+    val items: List<Item>?,
     @SerializedName("returned")
     @Expose
     val returned: Int?

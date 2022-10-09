@@ -7,8 +7,8 @@ import com.google.gson.annotations.Expose
 data class Thumbnail(
     @SerializedName("extension")
     @Expose
-    val extension: String?,
+    val extension: String,
     @SerializedName("path")
     @Expose
-    val path: String?
+    val path: String
 )

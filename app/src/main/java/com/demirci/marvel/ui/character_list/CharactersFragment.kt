@@ -1,10 +1,7 @@
 package com.demirci.marvel.ui.character_list
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
@@ -35,15 +32,11 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCharactersBinding.bind(view)
-        setBinding()
         setListener()
         setAdapter()
         collectLast(viewModel.characterItemsUiStates, ::setUsers)
     }
 
-    private fun setBinding() {
-        binding = DataBindingUtil.setContentView(requireActivity(), R.layout.fragment_characters)
-    }
 
     private fun setListener() {
         binding.btnRetry.setOnClickListener { characterListAdapter.retry() }
