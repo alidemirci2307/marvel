@@ -3,7 +3,7 @@ package com.demirci.marvel.di
 import android.content.Context
 import com.demirci.marvel.BuildConfig
 import com.demirci.marvel.data.repository.MarvelRepositoryImpl
-import com.demirci.marvel.data.source.MarvelApi
+import com.demirci.marvel.data.source.MarvelService
 import com.demirci.marvel.domain.repository.MarvelRepository
 import com.demirci.marvel.util.Constants
 import com.demirci.marvel.util.NetworkConnectionInterceptor
@@ -47,7 +47,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitApi(): MarvelApi {
+    fun provideRetrofitApi(): MarvelService {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
@@ -57,12 +57,12 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-            .create(MarvelApi::class.java)
+            .create(MarvelService::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideMarvelRepository(api : MarvelApi) : MarvelRepository {
+    fun provideMarvelRepository(api : MarvelService) : MarvelRepository {
         return MarvelRepositoryImpl(api)
     }
 }

@@ -4,7 +4,7 @@ package com.demirci.marvel.data.source.dto.characters
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
-data class CharactersDTO(
+data class CharactersResponse(
     @SerializedName("attributionHTML")
     @Expose
     val attributionHTML: String?,

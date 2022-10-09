@@ -6,49 +6,71 @@
     <data>
 
         <variable
-            name="viewmodel"
-            type="com.demirci.marvel.ui.character_list.CharactersViewModel" />
-
-        <variable
-            name="adapter"
-            type="com.demirci.marvel.ui.character_list.CharacterAdapter" />
+            name="charactersUiState"
+            type="com.demirci.marvel.ui.character_list.CharactersUiState" />
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.UserActivity">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/title" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/rvUsers"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:visibility="@{charactersUiState.listVisibility}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
-            app:setAdapter="@{adapter}"
-            app:submitList="@{viewmodel._marvelValue.component2()}"
-            tools:listitem="@layout/item_character"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@id/topAppbar" />
 
         <ProgressBar
-            android:id="@+id/progress_action"
-            app:manageState="@{viewmodel._marvelValue.component1()}"
-            android:layout_width="match_parent"
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="@{charactersUiState.progressBarVisibility}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topAppbar" />
+
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/retry"
+            android:visibility="@{charactersUiState.errorVisibility}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topAppbar" />
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{charactersUiState.getErrorMessage(context)}"
+            android:visibility="@{charactersUiState.errorVisibility}"
+            app:layout_constraintEnd_toEndOf="@+id/btnRetry"
+            app:layout_constraintStart_toStartOf="@+id/btnRetry"
+            app:layout_constraintTop_toBottomOf="@+id/btnRetry"
+            tools:text="Internet Connection Failed" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,11 +1,11 @@
 package com.demirci.marvel.data.source
 
-import com.demirci.marvel.data.source.dto.characters.CharactersDTO
+import com.demirci.marvel.data.source.dto.characters.CharactersResponse
 import com.demirci.marvel.util.Constants
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface MarvelApi {
+interface MarvelService {
 
     @GET("/v1/public/characters")
     suspend fun getAllCharacters(
@@ -14,7 +14,7 @@ interface MarvelApi {
         @Query("hash") hash: String = Constants.hash(),
         @Query("offset") offset: String
 
-    ): CharactersDTO
+    ): CharactersResponse
 
 
 }
