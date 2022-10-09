@@ -1,10 +1,10 @@
-package com.demirci.marvel.data.source.dto.characters
+package com.demirci.marvel.data.source.model.character_details
 
 
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
-data class Events(
+data class Characters(
     @SerializedName("available")
     @Expose
     val available: Int?,
@@ -13,7 +13,7 @@ data class Events(
     val collectionURI: String?,
     @SerializedName("items")
     @Expose
-    val items: List<İtem>?,
+    val items: List<İtem?>?,
     @SerializedName("returned")
     @Expose
     val returned: Int?

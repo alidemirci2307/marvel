@@ -1,4 +1,4 @@
-package com.demirci.marvel.data.source.dto.characters
+package com.demirci.marvel.data.source.model.characters
 
 
 import com.demirci.marvel.domain.model.CharacterModel

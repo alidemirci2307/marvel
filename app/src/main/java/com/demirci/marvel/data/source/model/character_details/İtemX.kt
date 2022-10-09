@@ -1,17 +1,17 @@
-package com.demirci.marvel.data.source.dto.characters
+package com.demirci.marvel.data.source.model.character_details
 
 
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose
 
-data class İtemXXX(
+data class İtemX(
     @SerializedName("name")
     @Expose
     val name: String?,
     @SerializedName("resourceURI")
     @Expose
     val resourceURI: String?,
-    @SerializedName("type")
+    @SerializedName("role")
     @Expose
-    val type: String?
+    val role: String?
 )

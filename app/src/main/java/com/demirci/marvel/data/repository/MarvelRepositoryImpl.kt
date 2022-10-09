@@ -4,8 +4,6 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.demirci.marvel.data.source.MarvelService
-import com.demirci.marvel.data.source.dto.characters.CharactersResponse
-import com.demirci.marvel.data.source.dto.characters.Result
 import com.demirci.marvel.domain.model.CharacterModel
 import com.demirci.marvel.domain.model.CharacterPagingDataSource
 import com.demirci.marvel.domain.repository.MarvelRepository

@@ -50,16 +50,6 @@
                 android:textStyle="bold"
                 tools:text="Character Name" />
 
-            <TextView
-                android:id="@+id/tv_character_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{characterItemUiState.description}"
-                android:textAlignment="center"
-                android:textColor="@color/purple_700"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:text="Character Description" />
 
 
         </LinearLayout>

@@ -1,4 +1,4 @@
-package com.demirci.marvel.data.source.dto.characters
+package com.demirci.marvel.data.source.model.character_details
 
 
 import com.google.gson.annotations.SerializedName
