@@ -11,6 +11,8 @@ data class CharacterItemUiState(private val characterModel: CharacterModel) : Ba
 
     fun getName() = characterModel.name
 
+    fun getDescription() = characterModel.description
+
     fun getComics() = characterModel.comics
 
 
