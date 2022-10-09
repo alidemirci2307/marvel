@@ -53,7 +53,7 @@ data class Result(
     val issn: String?,
     @SerializedName("issueNumber")
     @Expose
-    val issueNumber: Int?,
+    val issueNumber: Double?,
     @SerializedName("modified")
     @Expose
     val modified: String?,
