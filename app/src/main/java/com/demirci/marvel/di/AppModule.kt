@@ -5,7 +5,6 @@ import com.demirci.marvel.BuildConfig
 import com.demirci.marvel.data.repository.MarvelRepositoryImpl
 import com.demirci.marvel.data.source.MarvelService
 import com.demirci.marvel.domain.repository.MarvelRepository
-import com.demirci.marvel.util.Constants
 import com.demirci.marvel.util.NetworkConnectionInterceptor
 import dagger.Module
 import dagger.Provides
@@ -16,8 +15,8 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 import java.util.concurrent.TimeUnit.SECONDS
+import javax.inject.Singleton
 
 
 @Module
@@ -53,7 +52,7 @@ object AppModule {
         val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
         return Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

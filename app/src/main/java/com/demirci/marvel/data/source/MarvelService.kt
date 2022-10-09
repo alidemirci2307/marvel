@@ -1,5 +1,6 @@
 package com.demirci.marvel.data.source
 
+import com.demirci.marvel.BuildConfig
 import com.demirci.marvel.data.source.model.character_details.CharacterDetailsResponse
 import com.demirci.marvel.data.source.model.characters.CharactersResponse
 import com.demirci.marvel.util.Constants
@@ -13,7 +14,7 @@ interface MarvelService {
     //https://gateway.marvel.com:443/v1/public/characters?limit=3&offset=3&apikey=aac6883646e2108adcfb4890228767cd
     @GET("/v1/public/characters")
     suspend fun getAllCharacters(
-        @Query("apikey") apiKey: String = Constants.API_KEY,
+        @Query("apikey") apiKey: String = BuildConfig.API_KEY,
         @Query("ts") ts: String = Constants.timeStamp,
         @Query("hash") hash: String = Constants.hash(),
         @Query("limit") limit: String,
@@ -29,7 +30,7 @@ interface MarvelService {
         @Query("dateRange") dateRange: String = Constants.DATE_RANGE,
         @Query("orderBy") orderBy: String = Constants.ORDER_BY,
         @Query("limit") limit: String = Constants.COMICS_LIMIT,
-        @Query("apikey") apiKey: String = Constants.API_KEY,
+        @Query("apikey") apiKey: String = BuildConfig.API_KEY,
         @Query("ts") ts: String = Constants.timeStamp,
         @Query("hash") hash: String = Constants.hash(),
 
