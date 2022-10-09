@@ -2,6 +2,7 @@ package com.demirci.marvel.ui.character_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.demirci.marvel.domain.model.CharacterModel
 import com.demirci.marvel.domain.usecase.CharactersUseCase
 import com.demirci.marvel.util.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,12 +15,16 @@ import javax.inject.Inject
 @HiltViewModel
 class CharactersViewModel @Inject constructor(
     private val characterUseCase: CharactersUseCase
-) : ViewModel() {
+) : ViewModel(), CharacterListener {
 
     private val marvelValue = MutableStateFlow(MarvelListState())
     var _marvelValue : StateFlow<MarvelListState> = marvelValue
 
-    fun getAllCharacters(offset: Int) = viewModelScope.launch(Dispatchers.IO) {
+    init {
+        getAllCharactersWithPaing(30)
+    }
+
+    fun getAllCharactersWithPaing(offset: Int) = viewModelScope.launch(Dispatchers.IO) {
         characterUseCase(offset = offset).collect() {
             when (it) {
                 is Response.Success -> {
@@ -35,5 +40,9 @@ class CharactersViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    override fun onCharacterClicked(characterModel: CharacterModel) {
+        TODO("Not yet implemented")
     }
 }

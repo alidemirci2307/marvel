@@ -19,6 +19,7 @@ class CharactersUseCase @Inject constructor(
                 val list = repository.getAllCharacters(offset = offset).data?.results?.map {
                     it.toCharacter()
                 }
+
                 emit(Response.Success<List<CharacterModel>>(list))
             } catch (e: HttpException) {
                 emit(Response.Error<List<CharacterModel>>(e.printStackTrace().toString()))

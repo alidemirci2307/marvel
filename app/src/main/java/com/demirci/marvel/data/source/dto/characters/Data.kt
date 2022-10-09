@@ -16,7 +16,7 @@ data class Data(
     val offset: Int?,
     @SerializedName("results")
     @Expose
-    val results: List<Result>?,
+    val results: List<Result>,
     @SerializedName("total")
     @Expose
     val total: Int?
