@@ -49,8 +49,7 @@ data class Result(
             thumbnailExtension = thumbnail.extension,
             comics = comics.items.map {
                 it.name
-            },
-            uniqueId = 0L
+            }
         )
     }
 }

@@ -51,7 +51,7 @@
                     android:text="@{characterDetailsViewModel.character.name}"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/character_description"
                     android:textStyle="bold"
                     tools:text="Character Name" />
 
@@ -62,7 +62,7 @@
                     android:text="@{characterDetailsViewModel.character.description}"
                     android:textAlignment="center"
                     android:textColor="@color/purple_700"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/character_description"
                     android:textStyle="bold"
                     tools:text="Character Description" />
 
@@ -73,7 +73,7 @@
                     android:text="@{characterDetailsViewModel._comics}"
                     android:textAlignment="center"
                     android:textColor="@color/purple_700"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/character_comics_text_size"
                     android:textStyle="bold"
                     tools:text="Character Comics" />
 
